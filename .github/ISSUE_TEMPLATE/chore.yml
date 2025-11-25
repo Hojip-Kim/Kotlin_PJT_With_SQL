@@ -42,12 +42,19 @@ body:
       validations:
         required: false
 
-  - type: checkboxes
+  - type: textarea
     id: checklist
     attributes:
       label: ✅ 체크리스트
-      options:
-        - label: 로컬에서 변경 사항 확인 완료
-        - label: CI/CD에서 정상적으로 동작 확인
-        - label: 기능상 영향 없음 확인
-        - label: 릴리즈 노트 작성 불필요
+      description: 필요한 체크리스트를 직접 작성해주세요
+      placeholder: |
+        - [ ] 로컬에서 변경 사항 확인 완료
+        - [ ] CI/CD에서 정상적으로 동작 확인
+        - [ ] 기능상 영향 없음 확인
+        - [ ] 릴리즈 노트 작성 불필요
+      value: |
+        - [ ] 로컬에서 변경 사항 확인 완료
+        - [ ] CI/CD에서 정상적으로 동작 확인
+        - [ ] 기능상 영향 없음 확인
+    validations:
+      required: false

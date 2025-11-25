@@ -24,15 +24,22 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
+  - type: textarea
     id: checklist
     attributes:
       label: ✅ 체크리스트
-      options:
-        - label: A 기능 완료
-        - label: B 기능 완료
-        - label: C 기능 완료
-        - label: D 기능 완료
+      description: 필요한 작업 항목을 직접 작성해주세요
+      placeholder: |
+        - [ ] A 기능 완료
+        - [ ] B 기능 완료
+        - [ ] C 기능 완료
+        - [ ] D 기능 완료
+      value: |
+        - [ ]
+        - [ ]
+        - [ ]
+    validations:
+      required: false
 
   - type: textarea
     id: expected

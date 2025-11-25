@@ -56,11 +56,18 @@ body:
     validations:
       required: false
 
-  - type: checkboxes
+  - type: textarea
     id: checklist
     attributes:
       label: ✅ 체크리스트
-      options:
-        - label: 최신 버전에서도 발생 확인
-        - label: 이슈 검색으로 중복 확인
-        - label: 재현 가능한 최소 예제 제공
+      description: 필요한 체크리스트를 직접 작성해주세요
+      placeholder: |
+        - [ ] 최신 버전에서도 발생 확인
+        - [ ] 이슈 검색으로 중복 확인
+        - [ ] 재현 가능한 최소 예제 제공
+      value: |
+        - [ ] 최신 버전에서도 발생 확인
+        - [ ] 이슈 검색으로 중복 확인
+        - [ ] 재현 가능한 최소 예제 제공
+    validations:
+      required: false

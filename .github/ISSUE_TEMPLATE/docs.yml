@@ -19,11 +19,18 @@ body:
     validations:
       required: false
 
-  - type: checkboxes
+  - type: textarea
     id: checklist
     attributes:
-      label: 체크리스트
-      options:
-        - label: 최신 동작과 일치 확인
-        - label: 스크린샷/예시 코드 최신화
-        - label: 링크 유효성 확인
+      label: ✅ 체크리스트
+      description: 필요한 체크리스트를 직접 작성해주세요
+      placeholder: |
+        - [ ] 최신 동작과 일치 확인
+        - [ ] 스크린샷/예시 코드 최신화
+        - [ ] 링크 유효성 확인
+      value: |
+        - [ ] 최신 동작과 일치 확인
+        - [ ] 스크린샷/예시 코드 최신화
+        - [ ] 링크 유효성 확인
+    validations:
+      required: false
