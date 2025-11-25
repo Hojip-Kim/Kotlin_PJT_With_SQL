@@ -1,0 +1,48 @@
+name: "FEAT: 신규 기능"
+description: 새로운 기능 개발을 위한 이슈입니다.
+title: "[FEAT] "
+labels: ["feature"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: ✨ 요약
+      description: 이슈에 대한 간단한 설명
+      placeholder: 예) 공지사항 레디스 캐싱 추가
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 📌 배경 및 문제 정의
+      description: 왜 이 기능이 필요한가요? 어떤 문제가 있었나요?
+      placeholder: |
+        - 공지사항 데이터를 매번 DB에서 불러오고 있어 응답 속도가 느림
+        - 트래픽 증가 시 DB 부하가 우려됨
+        - 동일한 데이터가 자주 호출되므로 캐싱 도입이 필요
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✅ 체크리스트
+      options:
+        - label: A 기능 완료
+        - label: B 기능 완료
+        - label: C 기능 완료
+        - label: D 기능 완료
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ 기대 결과
+      description: 이 기능이 완료되었을 때 어떻게 되어야 하나요?
+      placeholder: |
+        - 공지사항 조회 시 Redis에서 먼저 캐시 데이터를 확인한다
+        - 캐시가 없을 경우 DB에서 조회하고 Redis에 저장한다
+        - 새로운 공지사항 등록/수정 시 캐시가 갱신된다
+        - 평균 응답 속도가 기존 300ms → 50ms로 감소한다
+    validations:
+      required: true

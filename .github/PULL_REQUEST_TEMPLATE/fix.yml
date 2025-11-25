@@ -1,0 +1,91 @@
+name: "FIX: 버그 수정"
+description: 버그 수정을 위한 Pull Request입니다.
+title: "[FIX] "
+labels: ["bug"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: 🐛 요약
+      description: 수정한 버그에 대해 간단하게 설명해주세요
+      placeholder: 예) 로그인 시 토큰 만료 오류 수정
+    validations:
+      required: true
+
+  - type: input
+    id: issue_link
+    attributes:
+      label: 🔗 관련 이슈
+      description: 관련된 이슈 번호를 입력해주세요
+      placeholder: 예) #123
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 📌 문제 상황
+      description: 어떤 문제가 있었는지 설명해주세요
+      placeholder: |
+        - 언제: 특정 상황이나 조건
+        - 무엇이: 어떤 기능에서
+        - 어떻게: 어떤 오류가 발생했는지
+    validations:
+      required: true
+
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: 🔍 원인 분석
+      description: 문제의 근본 원인을 설명해주세요
+      placeholder: |
+        - 코드상의 문제점
+        - 논리적 오류
+        - 환경 설정 문제 등
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: ✅ 해결 방법
+      description: 어떻게 문제를 해결했는지 설명해주세요
+      placeholder: |
+        - 수정한 코드의 내용
+        - 변경한 로직
+        - 추가한 검증 로직 등
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: test_verification
+    attributes:
+      label: 🧪 테스트 검증
+      description: 수정 사항을 어떻게 검증했는지 체크해주세요
+      options:
+        - label: 단위 테스트로 검증
+        - label: 통합 테스트로 검증
+        - label: 수동 테스트로 검증
+        - label: 회귀 테스트 실행
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 📋 체크리스트
+      description: PR 제출 전 확인사항
+      options:
+        - label: 문제 재현 및 수정 확인 완료
+          required: true
+        - label: 관련 테스트 케이스 추가/수정
+        - label: 코드 리뷰 완료
+        - label: 사이드 이펙트 확인 완료
+        - label: 로그 및 모니터링 추가
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: 📚 추가 정보
+      description: 기타 참고사항이나 배경 정보
+      placeholder: 추가적으로 전달하고 싶은 내용이 있다면 작성해주세요
+    validations:
+      required: false

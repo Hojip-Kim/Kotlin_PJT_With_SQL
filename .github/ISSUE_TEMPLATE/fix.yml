@@ -1,0 +1,66 @@
+name: "FIX: 버그 수정"
+description: 버그 수정을 위한 이슈입니다.
+title: "[FIX] "
+labels: ["bug", "fix"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: 🐛 요약
+      description: 버그에 대한 간단한 설명
+      placeholder: 예) 로그인 시 토큰 만료 오류 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 🔄 재현 방법
+      description: 버그를 재현하는 단계를 자세히 설명해주세요
+      placeholder: |
+        1. 로그인 페이지로 이동
+        2. 유효한 계정 정보 입력
+        3. 로그인 버튼 클릭
+        4. 500 에러 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ 예상 동작
+      description: 어떻게 동작해야 하나요?
+      placeholder: 정상적으로 로그인되고 메인 페이지로 리디렉션
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: ❌ 실제 동작
+      description: 실제로 어떻게 동작했나요?
+      placeholder: 토큰 만료 오류 메시지와 함께 500 에러 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 🖥️ 환경
+      description: 버그가 발생한 환경을 설명해주세요
+      placeholder: |
+        - OS: macOS 14.0
+        - Browser: Chrome 120
+        - Node: 20.10.0
+        - Package Version: 1.2.3
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✅ 체크리스트
+      options:
+        - label: 최신 버전에서도 발생 확인
+        - label: 이슈 검색으로 중복 확인
+        - label: 재현 가능한 최소 예제 제공

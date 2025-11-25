@@ -1,0 +1,101 @@
+name: "DOCS: 문서"
+description: 문서 추가/수정/보완을 위한 Pull Request입니다.
+title: "[DOCS] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: 📝 요약
+      description: 어떤 문서를 작업했는지 간단하게 설명해주세요
+      placeholder: 예) API 문서 업데이트, README 설치 가이드 추가
+    validations:
+      required: true
+
+  - type: input
+    id: issue_link
+    attributes:
+      label: 🔗 관련 이슈/PR
+      description: 관련된 이슈나 PR 번호를 입력해주세요
+      placeholder: 예) #123, #456
+    validations:
+      required: false
+
+  - type: dropdown
+    id: doc_type
+    attributes:
+      label: 📁 문서 유형
+      description: 어떤 종류의 문서인가요?
+      options:
+        - README
+        - API 문서
+        - 가이드/튜토리얼
+        - 설치/배포 문서
+        - 컨트리뷰션 가이드
+        - 라이센스/법적 문서
+        - 기타
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: change_type
+    attributes:
+      label: 🔄 변경 유형
+      description: 어떤 종류의 변경인가요?
+      options:
+        - label: 새로운 문서 추가
+        - label: 기존 문서 수정
+        - label: 문서 구조 개편
+        - label: 오탈자/문법 수정
+        - label: 예제 코드 업데이트
+        - label: 스크린샷/다이어그램 추가
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: 📢 주요 변경 내용
+      description: 구체적인 변경 사항을 설명해주세요
+      placeholder: |
+        - 설치 가이드에 Docker 방식 추가
+        - API 엔드포인트 응답 예시 업데이트
+        - 환경 변수 설정 섹션 추가
+        - 오래된 스크린샷을 최신 버전으로 교체
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 🎯 작성/수정 동기
+      description: 왜 이 문서 작업이 필요했나요?
+      placeholder: |
+        - 새로운 기능 추가로 문서 업데이트 필요
+        - 사용자로부터 받은 피드백 반영
+        - 기존 문서의 모호한 부분 개선
+        - 변경된 API 스펙에 맞춰 업데이트
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 📋 체크리스트
+      description: PR 제출 전 확인사항
+      options:
+        - label: 최신 코드/기능과 일치 확인
+          required: true
+        - label: 문법 및 맞춤법 검토 완료
+          required: true
+        - label: 링크 유효성 확인
+        - label: 예제 코드 실행 가능 확인
+        - label: 스크린샷/다이어그램 가독성 확인
+        - label: 팀원 리뷰 받음
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: 📚 추가 정보
+      description: 기타 참고사항이나 배경 정보
+      placeholder: 추가적으로 전달하고 싶은 내용이 있다면 작성해주세요
+    validations:
+      required: false

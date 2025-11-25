@@ -1,0 +1,29 @@
+name: "DOCS: 문서"
+description: 문서 추가/수정/보완
+title: "[DOCS] "
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: 변경 내용
+      placeholder: 예) README 설치 가이드 보완, API 문서 업데이트
+    validations:
+      required: true
+
+  - type: textarea
+    id: related
+    attributes:
+      label: 관련 이슈/PR
+      placeholder: #123, #456
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 체크리스트
+      options:
+        - label: 최신 동작과 일치 확인
+        - label: 스크린샷/예시 코드 최신화
+        - label: 링크 유효성 확인

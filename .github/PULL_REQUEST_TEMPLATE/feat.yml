@@ -1,0 +1,95 @@
+name: "FEAT: 신규 기능"
+description: 새로운 기능 개발을 위한 Pull Request입니다.
+title: "[FEAT] "
+labels: ["feature"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: ✨ 요약
+      description: 이 PR이 무엇을 하는지 간단하게 설명해주세요
+      placeholder: 예) 공지사항 레디스 캐싱 추가
+    validations:
+      required: true
+
+  - type: input
+    id: issue_link
+    attributes:
+      label: 🔗 관련 이슈
+      description: 관련된 이슈 번호를 입력해주세요
+      placeholder: 예) #123
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: change_type
+    attributes:
+      label: 📋 변경사항
+      description: 어떤 변경이 있었는지 체크해주세요
+      options:
+        - label: 새로운 기능 추가
+        - label: 버그 수정
+        - label: 성능 개선
+        - label: 리팩터링
+        - label: 문서 업데이트
+        - label: 테스트 추가/수정
+        - label: 의존성 변경
+        - label: 설정 변경
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: 🛠 주요 변경 내용
+      description: 기술적인 변경사항을 자세히 설명해주세요
+      placeholder: |
+        - 새로운 API 엔드포인트 추가
+        - Redis 캐싱 로직 구현
+        - 성능 최적화를 위한 쿼리 개선
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: database_changes
+    attributes:
+      label: 💾 데이터베이스 변경
+      description: 데이터베이스 관련 변경사항이 있는지 체크해주세요
+      options:
+        - label: 스키마 변경 없음
+        - label: 마이그레이션 스크립트 포함
+        - label: 새로운 테이블/컬럼 추가
+        - label: 기존 데이터 변경
+
+  - type: checkboxes
+    id: api_changes
+    attributes:
+      label: 🔌 API 변경
+      description: API 관련 변경사항이 있는지 체크해주세요
+      options:
+        - label: API 변경 없음
+        - label: 새로운 엔드포인트 추가
+        - label: 기존 API 수정 (Breaking Change)
+        - label: API 문서 업데이트 필요
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 📋 체크리스트
+      description: PR 제출 전 확인사항
+      options:
+        - label: 코드 스타일 가이드 준수
+          required: true
+        - label: 자기 리뷰 완료
+          required: true
+        - label: 관련 문서 업데이트
+        - label: Breaking Change가 있다면 마이그레이션 가이드 작성
+        - label: 로그 레벨 적절히 설정
+        - label: 보안 취약점 검토 완료
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: 📚 추가 정보
+      description: 기타 참고사항이나 배경 정보
+      placeholder: 추가적으로 전달하고 싶은 내용이 있다면 작성해주세요
+    validations:
+      required: false

@@ -1,0 +1,40 @@
+name: "REFACTOR: 코드 개선"
+description: 기능 변경 없이 내부 품질을 개선하는 이슈입니다.
+title: "[REFACTOR] "
+labels: ["refactor"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: 📌 문제 또는 배경
+      description: 리팩터링이 필요한 이유를 설명해주세요.
+      placeholder: |
+        - 중복된 코드가 여러 서비스 레이어에 흩어져 있음
+        - 단일 메서드가 너무 많은 책임을 가짐 (SRP 위반)
+        - 가독성이 떨어져 유지보수가 어려움
+        - 테스트가 어려운 구조로 되어 있음
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✅ 체크리스트
+      options:
+        - label: 로컬에서 변경 사항 확인 완료
+        - label: CI/CD에서 정상적으로 동작 확인
+        - label: 기능상 영향 없음 확인
+        - label: 릴리즈 노트 작성 불필요
+
+  - type: textarea
+    id: change
+    attributes:
+      label: 🔧 변경 요약
+      description: 어떤 식으로 개선할 예정인지 명확하게 서술해주세요.
+      placeholder: |
+        - 중복된 로직을 `AnnouncementService`로 통합
+        - `if-else` 분기를 `Strategy 패턴`으로 리팩터링
+        - `Map<String, Object>`를 명확한 DTO 클래스로 교체
+        - `Optional`을 사용하여 NPE 방지
+    validations:
+      required: true
