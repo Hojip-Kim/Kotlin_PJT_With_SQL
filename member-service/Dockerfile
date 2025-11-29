@@ -2,11 +2,11 @@ FROM gradle:8.11-jdk21 AS builder
 
 WORKDIR /app
 
-COPY ../build.gradle ../settings.gradle ./
-COPY ../gradle ../gradle
-COPY ../gradlew ./
+COPY build.gradle settings.gradle ./
+COPY gradle ./gradle
+COPY gradlew ./
 
-COPY . ./member-service
+COPY member-service ./member-service
 
 RUN ./gradlew :member-service:bootJar --no-daemon
 

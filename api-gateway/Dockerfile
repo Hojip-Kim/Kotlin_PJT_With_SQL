@@ -2,11 +2,11 @@ FROM gradle:8.11-jdk21 AS builder
 
 WORKDIR /app
 
-COPY ../build.gradle ../settings.gradle ./
-COPY ../gradle ../gradle
-COPY ../gradlew ./
+COPY build.gradle settings.gradle ./
+COPY gradle ./gradle
+COPY gradlew ./
 
-COPY . ./api-gateway
+COPY api-gateway ./api-gateway
 
 RUN ./gradlew :api-gateway:bootJar --no-daemon
 
