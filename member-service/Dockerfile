@@ -2,19 +2,24 @@ FROM gradle:8.11-jdk21 AS builder
 
 WORKDIR /app
 
-COPY build.gradle settings.gradle ./
+# 의존성 캐싱을 위해 build 파일만 먼저 복사
+COPY build.gradle settings.gradle gradlew ./
 COPY gradle ./gradle
-COPY gradlew ./
 
-COPY member-service ./member-service
+# 의존성 다운로드 (소스 코드 변경 시에도 캐시됨)
+RUN ./gradlew dependencies --no-daemon || true
 
-RUN ./gradlew :member-service:bootJar --no-daemon
+# 소스 코드 복사
+COPY src ./src
+
+# 빌드
+RUN ./gradlew bootJar --no-daemon
 
 FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
-COPY --from=builder /app/member-service/build/libs/member-service-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/build/libs/member-service-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8081
 

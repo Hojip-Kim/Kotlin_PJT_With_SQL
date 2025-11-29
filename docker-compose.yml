@@ -133,8 +133,8 @@ services:
   # Config Server
   config-server:
     build:
-      context: .
-      dockerfile: config-server/Dockerfile
+      context: ./config-server
+      dockerfile: Dockerfile
     container_name: config-server
     ports:
       - "8888:8888"
@@ -156,8 +156,8 @@ services:
   # Member Service
   member-service:
     build:
-      context: .
-      dockerfile: member-service/Dockerfile
+      context: ./member-service
+      dockerfile: Dockerfile
     container_name: member-service
     ports:
       - "8081:8081"
@@ -193,8 +193,8 @@ services:
   # Community Service
   community-service:
     build:
-      context: .
-      dockerfile: community-service/Dockerfile
+      context: ./community-service
+      dockerfile: Dockerfile
     container_name: community-service
     ports:
       - "8083:8083"
@@ -230,8 +230,8 @@ services:
   # Chat Service
   chat-service:
     build:
-      context: .
-      dockerfile: chat-service/Dockerfile
+      context: ./chat-service
+      dockerfile: Dockerfile
     container_name: chat-service
     ports:
       - "8082:8082"
@@ -271,8 +271,8 @@ services:
   # API Gateway
   api-gateway:
     build:
-      context: .
-      dockerfile: api-gateway/Dockerfile
+      context: ./api-gateway
+      dockerfile: Dockerfile
     container_name: api-gateway
     ports:
       - "8000:8000"
