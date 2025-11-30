@@ -19,7 +19,7 @@ class Member(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
-    val id: Long,
+    val id: Long? = null,
 
     @Column(name = "email", nullable = false, unique = true, length = 100)
     var email: String,
@@ -33,7 +33,7 @@ class Member(
 ) : BaseTimeEntity() {
     fun toDto() : MemberSignupResponseDto {
         return MemberSignupResponseDto(
-            id = id,
+            id = id!!,
             email = email,
             name = name,
             createdAt = createdAt
