@@ -23,11 +23,6 @@ class MemberServiceImpl(
         val member : Member = memberSignupVo.toEntity()
         val savedMember : Member = memberDao.save(member)
 
-        return MemberSignupResponseDto(
-            id = savedMember.id,
-            email = savedMember.email,
-            name = savedMember.name,
-            createdAt = savedMember.createdAt
-        )
+        return savedMember.toDto()
     }
 }
