@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Index
 import jakarta.persistence.Table
+import org.kotlin.kotlin_pjt.dto.member.response.MemberSignupResponseDto
 import org.kotlin.kotlin_pjt.entity.common.BaseTimeEntity
 
 @Entity
@@ -29,4 +30,13 @@ class Member(
     @Column(name = "name", nullable = false, length = 50)
     var name: String
 
-) : BaseTimeEntity()
+) : BaseTimeEntity() {
+    fun toDto() : MemberSignupResponseDto {
+        return MemberSignupResponseDto(
+            id = id,
+            email = email,
+            name = name,
+            createdAt = createdAt
+        )
+    }
+}
